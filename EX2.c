@@ -1,42 +1,28 @@
 #include <stdio.h>
+#include <math.h>
+#include <string.h>
+void others2Decimal (char *value,unsigned int *result,unsigned int radix)
+{
+    int i,j,digit;
+    *result=0;
+    for(strlen(*value-1),j=0;i>=0;i--,j++)
+    {
+        if(value[i]>='0'&&value[i]<='9')
+                digit=value[i]-'0';
+        if(value[i]>='a'&&value[i]<='f')
+                digit=value[i]-'a'+10;
+        if(value[i]>='A'&&value[i]<='F')
+                value[i]=value[i]-'A'+10;
+        *result=*result+digit*pow(radix,j);
+    }
+}
 int main()
 {
-unsigned int hex(char*s);
-unsigned int dec,s;
-    {
-        char*p=s;
-        if(*p=='\0')
-        return 0;
-        while(*p=='0')
-        p++;
-        int dec=0;
-        char c;
-        while(c==*p++)
-        {
-            dec<<4;
-            if(c>='0'&&c<='9')
-            {
-                dec=dec+(c-'0');
-                continue;
-            }
-            if(c>='a'&&c<='f')
-            {
-                dec=dec+(c-'a')+10;
-                continue;
-            }
-            if(c>='A'&&c<='F')
-            {
-                dec=dec+(c-'A')+10;
-                continue;
-            }
-            return -1;
-            if(dec>'FFFFFFFF'-'0')
-            return -1;
-        printf("the number you enter is too big,the max number is FFFFFFFF");
-        }
-        printf("enter a hex number:%d",hex);
-        printf("the dec number is%d",dec);
+char *value;
+int radix=16,result;
+        printf("enter a hex number:%d",value);
+        others2Decimal(value,&result,radix);
+        printf("%d\n",result);
+        putchar('\n');
         return 0;
     }
-       
-}
