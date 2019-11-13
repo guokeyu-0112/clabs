@@ -5,6 +5,9 @@ void others2Decimal (char *value,unsigned int *result,unsigned int radix)
 {
     int i,j,digit;
     *result=0;
+    if(value>'FFFFFFFF')
+    printf("the number you enter is too big,the max number is 'FFFFFFFF'");
+    else
     for(strlen(*value-1),j=0;i>=0;i--,j++)
     {
         if(value[i]>='0'&&value[i]<='9')
@@ -20,7 +23,9 @@ int main()
 {
 char *value;
 int radix=16,result;
-        printf("enter a hex number:%d",value);
+        printf("enter a hex number: ");
+        gets(value);
+        printf("the dec number is ");
         others2Decimal(value,&result,radix);
         printf("%d\n",result);
         putchar('\n');
